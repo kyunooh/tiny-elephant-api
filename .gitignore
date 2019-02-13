@@ -42,7 +42,6 @@ dw_php_codehinting.config
 *.bak
 *.cmp
 *.jpg
-*.html
 *.bsf
 
 # ignore simulation output of ModelSim
