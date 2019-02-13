@@ -33,6 +33,11 @@
     </style>
 </head>
 <body>
+<p>
+    keys:
+</p>
+<input id="key" type="text" />
+<button id="btn-get-commons"></button>
 <div id="visualization"></div>
 <textarea id="jsonData"></textarea>
 <div id="project"></div>
@@ -55,10 +60,15 @@
         // create a new CodeFlower
         currentCodeFlower = new CodeFlower("#visualization", w, h).update(json);
       };
-      d3.json('/keys/user1/commons', createCodeFlower);
+
       document.getElementById('project').addEventListener('change', function() {
         d3.json(this.value, createCodeFlower);
       });
+
+      document.getElementById("btn-get-commons").onclick = () => {
+         const key = document.getElementById("key").value;
+         d3.json(`/keys/${key}/commons`, createCodeFlower);
+      };
 
 </script>
 </body>
